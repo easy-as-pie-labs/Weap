@@ -10,7 +10,7 @@ def modexp(m, e, n):
     else:
         return modexp(m, e//2, n) ** 2 % n
 
-def isWieferich(n):
+def is_wieferich(n):
     return modexp(2, n-1, n**2) == 1
 
 class MyThread(Thread):
@@ -20,14 +20,14 @@ class MyThread(Thread):
         self.rangeEnd = rangeEnd
 
     def run(self):
-        self.searchWieferich()
+        self.search_wieferich()
 
-    def searchWieferich(self):
+    def search_wieferich(self):
         i = self.rangeStart
         if i % 2 == 0:  #ensures that start is an odd number
             i += 1
         while i <= self.rangeEnd:
-            if(isWieferich(i)):
+            if(is_wieferich(i)):
                 print self.name + " might have found a wieferich: " + str(i)
             if(i%100000 == 1):
                 print self.name + " currently at: " + str(i)
