@@ -1,17 +1,5 @@
 from threading import Thread
-def binary(e):
-    return bin(e)[2:]
-
-def modexp(m, e, n):
-    if e == 0:
-        return 1
-    if e % 2 == 1:
-        return modexp(m, e-1, n) * m % n
-    else:
-        return modexp(m, e//2, n) ** 2 % n
-
-def is_wieferich(n):
-    return modexp(2, n-1, n**2) == 1
+from MathFunctions import *
 
 class MyThread(Thread):
     def __init__(self, rangeStart, rangeEnd):
@@ -27,7 +15,7 @@ class MyThread(Thread):
         if i % 2 == 0:  #ensures that start is an odd number
             i += 1
         while i <= self.rangeEnd:
-            if(is_wieferich(i)):
+            if(MathFunctions.is_wieferich(i)):
                 print self.name + " might have found a wieferich: " + str(i)
             if(i%100000 == 1):
                 print self.name + " currently at: " + str(i)

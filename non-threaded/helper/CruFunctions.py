@@ -1,11 +1,18 @@
 from __future__ import print_function
-from BasicFunctions import *
+from MathFunctions import *
 import os
+
+'''
+TODO:
+put this in a class or whatever as a wrapper
+add comments
+'''
 
 __author__ = 'goggelz'
 
 prime = 1
 wieferich = 1
+
 
 def write_prime(p):
     f = open('primes.txt', 'a')
@@ -31,11 +38,11 @@ def set_wieferich_counter(w):
     f.close()
 
 
-def create_wieferichs():
+def find_wieferichs():
     global wieferich
     while True:
         wieferich += 2
-        if check_if_wieferich(wieferich):
+        if MathFunctions.is_wieferich(wieferich):
             print (wieferich)
             write_wieferich(wieferich)
         if wieferich % 100000 == 1:
@@ -54,7 +61,6 @@ def create_primes():
         if prime % 10000 == 1:
             set_prime_counter(prime)
         prime += 2
-
 
 
 def read_last_prime():
@@ -84,6 +90,7 @@ def read_last_wieferich():
         wieferich = long(last[-1])+2
     return wieferich
 
+
 def get_prime_counter():
     global prime
     if not os.path.isfile('counterPrime.txt'):
@@ -95,6 +102,7 @@ def get_prime_counter():
     if last:
         prime = long(last[-1])+2
     return prime
+
 
 def get_wieferich_counter():
     global wieferich

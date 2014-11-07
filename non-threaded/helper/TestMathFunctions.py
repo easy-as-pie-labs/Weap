@@ -1,12 +1,13 @@
-__author__ = 'thomas'
+__author__ = 'Janneck'
 
 import unittest
 from MathFunctions import *
 
-class TestHelperFunctions(unittest.TestCase):
+
+class TestMathFunctions(unittest.TestCase):
 
     '''
-    check modexp of a  number
+    check modexp of a number
     '''
     def test_modexp(self):
         self.assertEqual(MathFunctions.modexp(2, 5, 7), 4)
@@ -16,13 +17,11 @@ class TestHelperFunctions(unittest.TestCase):
     check if a number is a wieferich number
     the only known wieferich numbers so far are 1093 and 3511
     '''
-    def test_is_wieferich(self):
-        self.assertEqual(MathFunctions.is_wieferich(2), False)
-        self.assertEqual(MathFunctions.is_wieferich(3), False)
-        self.assertEqual(MathFunctions.is_wieferich(7), False)
+    def test_check_if_wieferich(self):
+        self.assertEqual(MathFunctions.is_wieferich(4), False)
+        self.assertEqual(MathFunctions.is_wieferich(12345), False)
         self.assertEqual(MathFunctions.is_wieferich(1093), True)
         self.assertEqual(MathFunctions.is_wieferich(3511), True)
-        self.assertEqual(MathFunctions.is_wieferich(1012393), False)
 
 
 if __name__ == '__main__':
