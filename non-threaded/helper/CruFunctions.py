@@ -13,27 +13,37 @@ __author__ = 'goggelz'
 prime = 1
 wieferich = 1
 
+'''
+file name constants
+'''
+PRIMES_FILE = 'primes.txt'
+WIEFERICHS_FILE = 'wieferichs.txt'
+PRIME_COUNTER_FILE = 'counterPrime.txt'
+WIEFERICHS_COUNTER_FILE = 'counterWieferichs.txt'
 
-def write_prime(p):
-    f = open('primes.txt', 'a')
-    print(p, file=f)
+
+def write_to_file(filename, value):
+    f = open(filename, 'a')
+    print(value, file=f)
     f.close()
 
 
-def write_wieferich(w):
-    f = open('wieferichs.txt', 'a')
-    print(w, file=f)
-    f.close()
+def write_prime(prime_to_save):
+    write_to_file(PRIMES_FILE, prime_to_save)
+
+
+def write_wieferich(wieferich_to_save):
+    write_to_file(WIEFERICHS_FILE, wieferich_to_save)
 
 
 def set_prime_counter(p):
-    f = open('counterPrime.txt', 'a')
+    f = open(PRIME_COUNTER_FILE, 'a')
     print(p, file=f)
     f.close()
 
 
 def set_wieferich_counter(w):
-    f = open('counterWieferichs.txt', 'a')
+    f = open(WIEFERICHS_COUNTER_FILE, 'a')
     print(w, file=f)
     f.close()
 
@@ -65,10 +75,10 @@ def create_primes():
 
 def read_last_prime():
     global prime
-    if not os.path.isfile('primes.txt'):
-        open('primes.txt', "a").close()
+    if not os.path.isfile(PRIMES_FILE):
+        open(PRIMES_FILE, "a").close()
 
-    f = open('primes.txt', "r")
+    f = open(PRIMES_FILE, "r")
 
     last = f.readlines()
     f.close()
@@ -79,10 +89,10 @@ def read_last_prime():
 
 def read_last_wieferich():
     global wieferich
-    if not os.path.isfile('wieferichs.txt'):
-        open('wieferichs.txt', "a").close()
+    if not os.path.isfile(WIEFERICHS_FILE):
+        open(WIEFERICHS_FILE, "a").close()
 
-    f = open('wieferichs.txt', "r")
+    f = open(WIEFERICHS_FILE, "r")
 
     last = f.readlines()
     f.close()
@@ -93,9 +103,9 @@ def read_last_wieferich():
 
 def get_prime_counter():
     global prime
-    if not os.path.isfile('counterPrime.txt'):
-        open('counterPrime.txt', "a").close()
-    f = open('counterPrime.txt', "r")
+    if not os.path.isfile(PRIME_COUNTER_FILE):
+        open(PRIME_COUNTER_FILE, "a").close()
+    f = open(PRIME_COUNTER_FILE, "r")
 
     last = f.readlines()
     f.close()
@@ -106,9 +116,9 @@ def get_prime_counter():
 
 def get_wieferich_counter():
     global wieferich
-    if not os.path.isfile('counterWieferichs.txt'):
-        open('counterWieferichs.txt', "a").close()
-    f = open('counterWieferichs.txt', "r")
+    if not os.path.isfile(WIEFERICHS_COUNTER_FILE):
+        open(WIEFERICHS_COUNTER_FILE, "a").close()
+    f = open(WIEFERICHS_COUNTER_FILE, "r")
 
     last = f.readlines()
     f.close()
