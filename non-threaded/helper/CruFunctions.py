@@ -5,6 +5,7 @@ import os
 '''
 TODO:
 put this in a class or whatever as a wrapper
+put find wieferich etc somewhere else -> this should only be crud operartions...
 '''
 
 __author__ = 'goggelz / thomas'

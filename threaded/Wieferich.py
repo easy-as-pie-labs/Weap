@@ -1,6 +1,7 @@
 from threading import Thread
 from MathFunctions import *
 
+
 class MyThread(Thread):
     def __init__(self, rangeStart, rangeEnd):
         Thread.__init__(self)
@@ -11,6 +12,9 @@ class MyThread(Thread):
         self.search_wieferich()
 
     def search_wieferich(self):
+        """
+        search for wieferich
+        """
         i = self.rangeStart
         if i % 2 == 0:  #ensures that start is an odd number
             i += 1

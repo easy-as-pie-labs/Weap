@@ -1,5 +1,6 @@
 __author__ = 'thomas'
 
+
 class MathFunctions(object):
 
     @staticmethod
@@ -23,7 +24,7 @@ class MathFunctions(object):
         """
         check if number is composite fermat
         :param n: number to check
-        :return: True or False
+        :return: [True|False]
         """
         return MathFunctions.modexp(2, n - 1, n) != 1
 
@@ -32,6 +33,6 @@ class MathFunctions(object):
         """
         check if number is wieferich number
         :param p: number (usually prime) to check
-        :return: True or False
+        :return: [True|False]
         """
         return MathFunctions.modexp(2, p-1, p**2) == 1

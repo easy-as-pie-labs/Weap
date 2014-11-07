@@ -21,9 +21,9 @@ class TestMathFunctions(unittest.TestCase):
         :return:
         """
         self.assertEqual(MathFunctions.is_wieferich(4), False)
-        self.assertEqual(MathFunctions.is_wieferich(12345), False)
         self.assertEqual(MathFunctions.is_wieferich(1093), True)
         self.assertEqual(MathFunctions.is_wieferich(3511), True)
+        self.assertEqual(MathFunctions.is_wieferich(12345), False)
 
 
 if __name__ == '__main__':
