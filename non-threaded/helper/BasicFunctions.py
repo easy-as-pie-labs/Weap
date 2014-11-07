@@ -7,13 +7,12 @@ def modexp(m, e, n):
     else:
         return modexp(m, e//2, n) ** 2 % n
 
+
 # check if number is composite fermat
-def isCompositeFermat(n):
+def is_composite_fermat(n):
     return modexp(2, n - 1, n) != 1
 
-if __name__ == "__main__":
-    m = 123234
-    e = 235623
-    n = 8239234
-    print modexp(m, e, n)
-    print isCompositeFermat(561)
+
+# check if number is wieferich number
+def check_if_wieferich(p):
+    return modexp(2, p-1, p**2) == 1
