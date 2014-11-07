@@ -3,55 +3,42 @@ def binary(e):
     return bin(e)[2:]
 
 def modexp(m, e, n):
-    s=1
-    for b in binary(e):
-        s=s*s % n
-        if b=="1":
-            s=s*m % n
-    return s
-
-'''
-def isCompositeFermat(n):
-    return modexp(2, n-1, n) != 1
-'''
+    if e == 0:
+        return 1
+    if e % 2 == 1:
+        return modexp(m, e-1, n) * m % n
+    else:
+        return modexp(m, e//2, n) ** 2 % n
 
 def isWieferich(n):
     return modexp(2, n-1, n**2) == 1
 
 class MyThread(Thread):
-    def __init__(self, rangeStart):
+    def __init__(self, rangeStart, rangeEnd):
         Thread.__init__(self)
         self.rangeStart = rangeStart
+        self.rangeEnd = rangeEnd
 
     def run(self):
         self.searchWieferich()
 
     def searchWieferich(self):
-        i = self.rangeStart + 1
-        run = True
-        while(run == True):
+        for i in range(self.rangeStart, self.rangeEnd):
             if(isWieferich(i)):
-                run = False
-                print i
+                print "might be wieferich: " + str(i)
             if(i%100000 == 1):
                 print i
             i+=2
 
-myThreadOb1 = MyThread(10**17)
-myThreadOb1.setName('Thread 1')
+if __name__ == '__main__':
+    firstThread = MyThread(10**17, 10**18)
+    secondThread = MyThread(10**18, 10**19)
+    thirdThread = MyThread(10**19, 10**20)
+    fourthThread = MyThread(10**20, 10**21)
 
-myThreadOb2 = MyThread(10**18)
-myThreadOb2.setName('Thread 2')
-
-myThreadOb3 = MyThread(10**17)
-myThreadOb3.setName('Thread 3')
-
-myThreadOb4 = MyThread(10**18)
-myThreadOb4.setName('Thread 4')
-
-myThreadOb1.start()
-myThreadOb2.start()
-myThreadOb3.start()
-myThreadOb4.start()
+    firstThread.start()
+    secondThread.start()
+    thirdThread.start()
+    fourthThread.start()
 
 
