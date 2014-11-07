@@ -23,7 +23,9 @@ class MyThread(Thread):
         self.searchWieferich()
 
     def searchWieferich(self):
-        i = self.rangeStart + 1
+        i = self.rangeStart
+        if i % 2 == 0:  #ensures that start is an odd number
+            i += 1
         while i <= self.rangeEnd:
             if(isWieferich(i)):
                 print self.name + " might have found a wieferich: " + str(i)
