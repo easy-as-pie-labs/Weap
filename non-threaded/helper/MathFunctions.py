@@ -7,10 +7,10 @@ class MathFunctions(object):
     def modexp(m, e, n):
         """
         modular exponentiation
-        :param m: ?
-        :param e: ?
-        :param n: ?
-        :return:
+        :param m: base
+        :param e: exponent
+        :param n: modulo
+        :return: modulo value
         """
         if e == 0:
             return 1
