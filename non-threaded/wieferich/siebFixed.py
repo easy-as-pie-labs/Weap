@@ -9,7 +9,7 @@ start_time = datetime.datetime.today()
 hier wird von 2 gestartet, muss entsprechend angepasst werden
 zahlenbereich der ueberprueft wird... ich will wissen wie lang es dauert 12.8 Millionen Primzahlen zu finden
 '''
-N = 12800000*10
+N = 10**9
 gestrichen = np.zeros(N, dtype=bool)
 primes = []
 print len(gestrichen)
@@ -21,6 +21,10 @@ for i in range(2, N):
         for j in range(i*i, N, i):
             gestrichen[j] = True
 
+    if i % 1000000 == 0:
+        print i
+
+# set this shit
 for i in range(int(math.sqrt(N))+1, N):
     if not gestrichen[i]:
         primes.append(i)
