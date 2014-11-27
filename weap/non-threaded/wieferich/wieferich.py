@@ -1,4 +1,4 @@
-from helper.CruFunctions import*
+from helper.CruFunctions import *
 
 __author__ = 'weap - wiefrich easy as pie'
 
