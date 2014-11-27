@@ -29,24 +29,24 @@ def ggt(a, b):
         return ggt(b, a % b)
 
 
-def profiling():
+def profiling(range_start, range_end):
     """
     profiling ggt and extended ggt
     :return:
     """
     start = timer()
-    for i in range(0, 1000):
-        for j in range(0, 1000):
+    for i in range(range_start, range_end):
+        for j in range(range_start, range_end):
             ggt(i, j)
     ggt_time = timer() - start
 
     start = timer()
-    for i in range(0, 1000):
-        for j in range(0, 1000):
+    for i in range(range_start, range_end):
+        for j in range(range_start, range_end):
             extendedGcd(i, j)
     egcd_time = timer() - start
 
     return ggt_time, egcd_time
 
 if __name__ == '__main__':
-    print profiling()
+    print profiling(0, 10000)
