@@ -1,5 +1,5 @@
 __author__ = 'TPei'
-
+from timeit import default_timer as timer
 
 def extendedGcd(a, b):
     """
@@ -34,18 +34,17 @@ def profiling():
     profiling ggt and extended ggt
     :return:
     """
-    import datetime
-    start = datetime.datetime.today()
+    start = timer()
     for i in range(0, 1000):
         for j in range(0, 1000):
             ggt(i, j)
-    ggt_time = datetime.datetime.today() - start
+    ggt_time = timer() - start
 
-    start = datetime.datetime.today()
+    start = timer()
     for i in range(0, 1000):
         for j in range(0, 1000):
             extendedGcd(i, j)
-    egcd_time = datetime.datetime.today() - start
+    egcd_time = timer() - start
 
     return ggt_time, egcd_time
 
